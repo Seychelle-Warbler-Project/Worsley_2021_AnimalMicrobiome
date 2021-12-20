@@ -1,0 +1,98 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .SFNSMono-Regular;}
+{\colortbl;\red255\green255\blue255;\red27\green31\blue34;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c14118\c16078\c18039;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww22060\viewh17560\viewkind0
+\deftab720
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trcbpat3 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clmgf \clvertalt \clshdrawnil \clwWidth30962\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx4320
+\clmrg \clvertalt \clshdrawnil \clwWidth30962\clftsWidth3 \clminw1000 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl200 \clpadr200 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+This folder contains data and R script needed to reproduce the results in the paper Worsley et al 2021:\
+\
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Worsley, S.F., Davies, C.S., Mannarelli, ME. et al. Gut microbiome composition, not alpha diversity, is associated with survival in a natural vertebrate population. anim microbiome 3, 84 (2021). https://doi.org/10.1186/s42523-021-00149-6\
+\
+\pard\intbl\itap1\pardeftab720\sl400\partightenfactor0
+\cf2 All variable names in these data should be self-explanatory, but please don't hesitate to send an email to the corresponding author if anything is unclear.\
+\
+Files included:\
+\
+### Scripts ###\
+\
+#SequencingExtractionRepeatability.R\
+This R script contains the code necessary to reproduce the analysis investigating sample completeness, and the consistency of alpha and beta diversity metrics across extraction and sequencing repeats of the same faecal sample (including Figure S1 and S2).\
+\
+#GMvariation.R\
+This R script contains the code necessary to reproduce the results of the analysis looking at the influence of age, sex, territory quality and season on gut microbiome variation (Table 1, Table S1, Figure 2, Figure S3, S4, S5).\
+\
+#BodyCondition_Alpha.R\
+This R script contains the code necessary to reproduce the results of the analysis investigating the association between gut microbiome alpha diversity and body condition (Table S2).\
+\
+#BodyCondition_Beta.R\
+This R script contains the code necessary to reproduce the results of the analysis investigating the association between gut microbiome beta diversity and body condition (Table S3).\
+\
+#Survival_Alpha.R\
+This R script contains the code necessary to reproduce the results of the analysis investigating the association between gut microbiome alpha diversity and survival to the next breeding season (Figure 1, Table 2, Table S4 and Figure S6).\
+\
+#Survival_Beta.R\
+This R script contains the code necessary to reproduce the results of the analysis investigating the association between gut microbiome beta diversity and survival to the next breeding season (Table 3, Figure 3, Figure 4, Table S5).\
+\
+### Data ###\
+\
+# ASV_table.csv\
+This file contains the raw abundances of Amplicon Sequence Variants (ASV) inferred for each faecal sample using QIIMEII analysis. The paired-end sequences for each sample used to generate the table have been deposited with the ENA under the accession numbers PRJEB45408 (samples taken in 2017 and 2018) and PRJEB47095 (samples taken in 2019 and 2020). The ASV table is used to generate phyloseq objects.\
+\
+# taxonomy.csv\
+This file contains the taxonomy of ASVs in ASV_table.csv. It was generated as part of the QIIMEII pipeline. This file is used to generate phyloseq objects.\
+\
+# tree.nwk\
+A rooted phylogenetic tree of the ASVs in ASV_table.csv. It was generated as part of the QIIMEII pipeline. Used to generate phyloseq objects and conduct phylogenetically aware analyses.\
+\
+# Metadata_Full.csv\
+This file contains the sample metadata. Columns correspond to:\
+\
+Sample.ID = Unique identifier for each faecal sample\
+OriginalSampleIDUnique = Unique tube number for each faecal sample (suffix "b" means same sample sequenced twice, "R" are repeat extractions of the same sample)\
+BirdID = Unique identifier for each bird\
+NBAFSAMPLEID = Unique identifier assigned by sequencing company\
+TubeNumber = Tube number for each faecal sample (note there are duplicates if the sample has been sequenced and/or extracted twice).\
+SampleType = Sample type (C= control or F= faecal)\
+SampleType4way = Sample type split 4 ways (Collection control, Extraction control (blank swab), Positive control (zymo mock community) or F (faecal sample).\
+CatchID = Unique identifier for catch\
+SampleDate = date faecal sample taken\
+SampleYear = Year faecal sample take (2017-2020)\
+SampleSource = source of faecal sample (Tray, Bag, Other, NA= not applicable)\
+Qubit = Concentration (ng/\uc0\u956 l) of DNA extracted from sample\
+SequenceRunNo = sequence run sample was included in (1-4_\
+SampleExtractionNotes = Notes taken during DNA extraction\
+Island = Island where bird was samples (CN: Cousin Island)\
+FieldPeriodID = Unique identifier for field period sample was taken in (164 = major17, 166= minor18, 167= major18, 171= minor19, 173= major19, 174= minor20)\
+FieldPeriodIDFactor = Field period sample was taken (Major17, Minor18, Major18, Minor19, Major19, Minor20\
+FieldPeriodIDBinary = Breeding season sample was taken in (Minor or Major)\
+BTO = Unique BTO ring number for each Bird\
+FieldRing = Unique colour ring combination for each Bird\
+SexEstimate = sex of bird (M= male, F= female)\
+Ageclass = ageclass of bird (N= nestling, FL= fledgling, OFL= old fledgling, SA= Sub-adult, A= adults)\
+Eyecolour= eyecolour of bird (G= grey, LB= light brown, RB= red brown).\
+BodyMass = Body mass of bird (in grams)\
+RightTarsus = length of right tarsus (in mm)\
+EggPresent = an egg present in females (0= no, 1= yes)\
+BroodPatch = is a brood patch present- suggests incubating (0= no, 1= yes)\
+Status = status of bird in population census\
+TerritoryID = Territory ID of that bird's breed group\
+TerritoryQualityRaw = quality of territory (note missing values for some seasons)\
+TerritoryQuality = quality of territory. For territories with missing qualities ana average of the preceding and following seasons was taken.\
+SurvivedNextSeason = Did the bird survive until the following breeding season, binary (0= no/died, 1= yes/survived)\
+SurvivedNextSeasonFactor = Did the bird survive until the following breeding season (no= died or yes= survived)\
+CatchTime = time of day bird was caught/sampled\
+MinutesSinceSunrise = time bird was caught as minutes since sunrise (06:00 am)\
+Observer = Initials of observer who caught/sampled bird\
+SequencingDuplicate = Was the sample sequenced again to confirm the repeatability of sequencing methods/runs (Yes, No)\
+CatchRepeat = Is the sample a repeat sample taken during the same catch of the same bird (Yes= filtered, No= kept in analysis)\
+LatestSample = For survival analysis: is this the latest sample taken for that bird (by date) if there are mutliple ones taken from the same individual at different time points (yes or no - include those with yes in analysis)\cell 
+\pard\intbl\itap1\cell \lastrow\row
+}
